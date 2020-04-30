@@ -80,13 +80,24 @@ const findLowestScore = (array) => {
 //8. Declare a function named findAverageQuizScore
 const findAverageQuizScore = (array) => {
     let currentScores = 0;
-    for (let score of array) {
-        currentScores += score;
+    for (let object of array) {
+        currentScores += object.score;
     }
+    return currentScores / array.length;
 }
-//9. Declare a function named filterScores
-//10. Declare a function named sortScoresAsc
-//11. Declare a function named sortScoresDsc
+//9. Declare a function named filterScores --- NOT WORKING
+const filterScores = (array, property, value) => {
+    return array.filter((object) => {
+        return object[property] === value;
+    })
+}
+//10. Declare a function named sortScoresAsc --- NEED TO FINISH TOMORROW 
+const sortScoresAsc = (array) => {
+    return array.sort((a, b) => {
+        return a.score < b.score;
+    });
+}
+//11. Declare a function named sortScoresDsc --- NEED TO FINISH TOMORROW
 
 console.log(scores);
 addScore(scores, "Janice", 30, "2020-04-29");
@@ -98,6 +109,6 @@ console.log(scores);
 editScore(scores, 2, 30);
 console.log(findScoreByName(scores, "Jill"));
 console.log(findLowestScore(scores));
-
-
-
+console.log(findAverageQuizScore(scores));
+console.log(filterScores(scores, "name", "Jill"));
+console.log(sortScoresAsc(scores));
