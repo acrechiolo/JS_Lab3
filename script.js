@@ -94,21 +94,30 @@ const filterScores = (array, property, value) => {
 //10. Declare a function named sortScoresAsc --- NEED TO FINISH TOMORROW 
 const sortScoresAsc = (array) => {
     return array.sort((a, b) => {
-        return a.score < b.score;
-    });
-}
+        //a should come before b in the sorted order
+        if (a.score < b.score) {
+            return -1;
+            //a should come after b in the sorted order
+        } else if (a.score > b.score) {
+            return 1;
+            //if a and b are the same    
+        } else {
+            return 0;
+        }
+    })
+};
 //11. Declare a function named sortScoresDsc --- NEED TO FINISH TOMORROW
-
-console.log(scores);
-addScore(scores, "Janice", 30, "2020-04-29");
-console.log(scores);
-// deleteScoreByIndex(scores, 1);
-// console.log(scores);
-deleteScoreByName(scores, "Janice");
-console.log(scores);
-editScore(scores, 2, 30);
-console.log(findScoreByName(scores, "Jill"));
-console.log(findLowestScore(scores));
-console.log(findAverageQuizScore(scores));
-console.log(filterScores(scores, "name", "Jill"));
-console.log(sortScoresAsc(scores));
+const sortScoresDsc = (array) => {
+    return array.sort((b, a) => {
+        //a should come before b in the sorted order
+        if (b.score < a.score) {
+            return -1;
+            //a should come after b in the sorted order
+        } else if (b.score > a.score) {
+            return 1;
+            //if a and b are the same    
+        } else {
+            return 0;
+        }
+    })
+};
